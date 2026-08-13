@@ -1,0 +1,17 @@
+{
+    "credentails": {
+        "validuser": "standard_user",
+        "validPassword": "secret_sauce",
+        "lockedUser": "locked_out_user",
+        "invalidPassword": "jkljl"
+    },
+    "expectedMessages": {
+        "lockedUser": "Epic sadface: Sorry, this user has been locked out.",
+        "inValidCrendentails": "Epic sadface: Username and password do not match any user in this service",
+        "userNameRequired": "Epic sadface: Username is required",
+        "passwordRequired": "Epic sadface: Password is required"
+    },
+    "product":{
+        "inventorycount":6
+    }
+}
