@@ -22,17 +22,18 @@ static read<T>(sheetName:string,fileName:string='SauceDemoTestData.xlsx') : T[] 
 
 static getRowByTestCaseId<T>(sheetName:string,testCaseId:string,fileName:string='SauceDemoTestData.xlsx'):T|undefined
 {
-
     let rows = this.read<T>(sheetName,fileName)
-    return rows.find((row:any)=>{
-        String(row.TestCaseID ?? '').trim()  === testCaseId 
-    })
+    return rows.find((row:any) => 
+        String(row.TestCaseID ?? '').trim() === testCaseId    
+    )
 }
 
 static getCellValue<T>(sheetName:string,testCaseId:string,columnName:string,fileName:string='SauceDemoTestData.xlsx'):string{
 let row:any = this.getRowByTestCaseId(sheetName,testCaseId,fileName)
 return String(row?.[columnName]??'').trim();
 }
+
+
 
 
 
