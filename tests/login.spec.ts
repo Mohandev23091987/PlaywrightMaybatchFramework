@@ -72,6 +72,13 @@ test.describe('SauceDemo Login tests', () => {
   });
 
 
+// this is conflict code 
+
+    // this is conflict code 
+    // this is conflict code 
+
+    // this is conflict code 
+    // this is conflict code 
 
 
 
