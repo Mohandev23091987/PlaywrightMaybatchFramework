@@ -14,6 +14,7 @@ export let test =base.extend<ProuctsPageFixture>({
 
 productsPage: async({page},use)=>{
 
+    console.log('this setup run by fixture')
 let loginPage = new LoginPage(page);
 await loginPage.navigateToLogInPage(process.env.SAUCEDEMO_URL as string)
 await loginPage.performLogin(process.env.SUACEDEMO_USERNAME as string, process.env.SUACEDEMO_PASSWORD as string)

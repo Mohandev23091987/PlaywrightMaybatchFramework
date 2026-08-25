@@ -14,8 +14,9 @@ export class ProductsPage {
         this.page = page;
         this.pageTitle = page.getByText('Products')
         this.sortDropDown = page.locator('[data-test="product-sort-container"]')
-        this.inventoryItems = page.locator('..inventory_item')
+        this.inventoryItems = page.locator('.inventory_item')
         this.shoppingCartButton = page.locator('[data-test="shopping-cart-link"]')
+        
     }
 
     //methods
@@ -48,6 +49,12 @@ export class ProductsPage {
 
     async openCart() {
         await this.shoppingCartButton.click()
+    }
+
+    async getProductsCount(){
+
+        return await this.inventoryItems.count()
+
     }
 
 }
