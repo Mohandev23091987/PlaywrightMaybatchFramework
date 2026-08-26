@@ -69,15 +69,10 @@ test.describe('SauceDemo Login tests', () => {
 
     await expect(loginPage.errorMessage).toBeVisible();
     await expect(loginPage.errorMessage).toHaveText(testData.expectedMessages.passwordRequired);
+    
   });
 
-//added new code
-//added new code
-//added new code
-//added new code
-//added new code
-//added new code
-//added new code
+
 
 
 
