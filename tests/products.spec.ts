@@ -51,6 +51,29 @@ test.describe('SauceDemo Product Scenarios',()=>{
 
 //fixing the review comments 
 
+//new code added
+//new code added
+    //new code added
+//new code added
+    //new code added
+//new code added
+    //new code added
+//new code added
+    //new code added
+//new code added
+    //new code added
+//new code added
+    //new code added
+//new code added
+    //new code added
+//new code added
+    //new code added
+//new code added
+    //new code added
+//new code added
+
+    //new code added
+//new code added
 //mohan code
 //mohan code
 //mohan code
