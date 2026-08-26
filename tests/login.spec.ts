@@ -69,16 +69,10 @@ test.describe('SauceDemo Login tests', () => {
 
     await expect(loginPage.errorMessage).toBeVisible();
     await expect(loginPage.errorMessage).toHaveText(testData.expectedMessages.passwordRequired);
+    
   });
 
 
-// this is conflict code 
-
-    // this is conflict code 
-    // this is conflict code 
-
-    // this is conflict code 
-    // this is conflict code 
 
 
 
