@@ -42,6 +42,13 @@ test.describe('SauceDemo Product Scenarios',()=>{
 
     expect(actualProductsCount).toBe(expectedProductsCount)
 
+
+
+
+
+
+
+    
     })
 
   
