@@ -42,6 +42,17 @@ test.describe('SauceDemo Product Scenarios',()=>{
 
     expect(actualProductsCount).toBe(expectedProductsCount)
 
+    // code 
+
+        // code 
+
+
+
+            // code 
+
+// rebase vs merge
+//fetch vs merge
+
 
 
 
