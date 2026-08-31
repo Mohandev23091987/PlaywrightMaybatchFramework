@@ -1,4 +1,8 @@
-import { test, expect } from '@playwright/test'
+import { test, expect, page } from '@playwright/test'
+import { validateSchemaZod } from 'playwright-schema-validator'
+import { z } from 'zod';
+
+
 let petPayload = {
     "id": 75,
     "category": {
@@ -16,6 +20,54 @@ let petPayload = {
 };
 
 let petId = petPayload.id;
+
+
+let petSchema = z.object({
+    id: z.number(),
+
+    category: z.object({
+        id: z.number(),
+        name: z.number()
+    }),
+
+    name: z.string(),
+
+    tags: z.array(
+        z.object({
+            id: z.number(),
+            name: z.string()
+        })
+    ),
+
+    status: z.string()
+});
+
+let token = 'hakjhdkjfhakjdfhkj8y876876'
+
+const responseSchema = z.object({
+    name: z.string(),
+    job: z.string(),
+    id: z.string(),
+    createdAt: z.string(),
+
+    _meta: z.object({
+        powered_by: z.string(),
+        docs_url: z.string().url(),
+        upgrade_url: z.string().url(),
+        example_url: z.string().url(),
+        variant: z.string(),
+        message: z.string(),
+
+        cta: z.object({
+            label: z.string(),
+            url: z.string().url()
+        }),
+
+        context: z.string()
+    })
+});
+
+
 
 let expectedDeleteRes = {
     "code": 200,
@@ -42,6 +94,11 @@ test.describe.serial('Api petstore tests', () => {
         expect(petPayload.id).toBe(resposeBody.id)
         expect(petPayload.name).toBe(resposeBody.name)
         expect(petPayload.status).toBe(resposeBody.status)
+
+
+        //schema validation
+        await validateSchemaZod({ page }, resposeBody, petSchema)
+
     })
 
     test('GET - fetch the pet details', async ({ request }) => {
@@ -72,9 +129,9 @@ test.describe.serial('Api petstore tests', () => {
             ],
             "status": "unavailable"
         }
-        let updateResponse = await request.put('/v2/pet',{
+        let updateResponse = await request.put('/v2/pet', {
 
-         data:updatePayload
+            data: updatePayload
 
         })
 
@@ -86,13 +143,13 @@ test.describe.serial('Api petstore tests', () => {
         let getResponseJson = await updateResponse.json();
         expect(updatePayload.name).toBe(getResponseJson.name)
         expect(updatePayload.status).toBe(getResponseJson.status)
-        console.log('expected name:'+updatePayload.name)
-        console.log('name from response:'+getResponseJson.name)
+        console.log('expected name:' + updatePayload.name)
+        console.log('name from response:' + getResponseJson.name)
     })
 
 
 
-     test('Delete - Deleting the pet details', async ({ request }) => {
+    test('Delete - Deleting the pet details', async ({ request }) => {
         let delResponse = await request.delete(`/v2/pet/${petId}`)
         console.log(delResponse)
         expect(delResponse.status()).toBe(200)
@@ -111,19 +168,48 @@ test.describe.serial('Api petstore tests', () => {
     })
 
 
+    // this test from req-resapi
+    test('POST -create a user', async ({ request }) => {
+        //1. create api request 
+        let response = await request.post('https://reqres.in/api/users', {
+            data: {
+                "name": "Ravi",
+                "job": "leader"
+            },
+
+            // headers:{
+            //     //Authorization:`Basic ${credentails}`
+            //     //Authorization:` Bearer ${token}`
+            //     // 'api-key' : 'jhjkhjkhkjhk979879'
+            // }
+        })
+        console.log(response)
+        expect(response.status()).toBe(201)
+
+        let resposeBody = await response.json();
+        console.log(resposeBody)
+
+        //schema validation
+        await validateSchemaZod({ page }, resposeBody, responseSchema)
+
+    })
 
 
-//crud
 
 
-//scheme validate
+    //crud
 
-// mock the api
 
-//
+    //scheme validate
 
-//res
+    // mock the api
 
+    //
+
+    //res
+
+    //api mocking 
+    //api test with bear or jwt
 
 
 
