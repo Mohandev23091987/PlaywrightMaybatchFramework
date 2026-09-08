@@ -42,6 +42,13 @@ export class ProductsPage {
     async getAllProductNames() {
         return await this.inventoryItems.locator('[data-test="inventory-item-name"]').allInnerTexts()
     }
+    async getAllProductPrices() {
+        const prices = await this.inventoryItems.locator('[data-test="inventory-item-price"]').allInnerTexts()
+        return prices.map(price => Number(price.replace('$', '')))
+    }
+    async getSelectedSortOption() {
+        return await this.sortDropDown.inputValue()
+    }
     async getAllProductCards() {
         
     }
