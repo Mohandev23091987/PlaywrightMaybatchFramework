@@ -17,14 +17,14 @@ export class LoginPage {
         this.page = page;
         this.userNameInput = page.getByRole('textbox', { name: 'username' })
         this.passwordInput = page.locator('[data-test="password"]')
-        this.loginButton = page.getByRole('button', { name: 'Login' })
+        this.loginButton = page.getByRole('button', { name: 'Login123' })
         this.errorMessage = page.locator('[data-test="error"]')
         this.ProductPageTitle =page.getByText('Products')
     }
 
     //methods 
     async navigateToLogInPage(url: string): Promise<void> {
-        await this.page.goto(url);
+        await this.page.goto(url); //wrong url
         await expect(this.page).toHaveURL(url)
     }
     async enterUsername(username: string): Promise<void> {
