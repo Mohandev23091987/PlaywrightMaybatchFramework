@@ -1,4 +1,4 @@
-import { test, expect, page } from '@playwright/test'
+import { test, expect } from '@playwright/test'
 import { validateSchemaZod } from 'playwright-schema-validator'
 import { z } from 'zod';
 
@@ -79,7 +79,7 @@ let expectedDeleteRes = {
 //CRUD
 test.describe.serial('Api petstore tests', () => {
 
-    test('POST -create a pet', async ({ request }) => {
+    test('POST -create a pet', async ({ request, page }) => {
         //1. create api request 
         let response = await request.post('/v2/pet', {
             data: petPayload
@@ -169,7 +169,7 @@ test.describe.serial('Api petstore tests', () => {
 
 
     // this test from req-resapi
-    test('POST -create a user', async ({ request }) => {
+    test('POST -create a user', async ({ request, page }) => {
         //1. create api request 
         let response = await request.post('https://reqres.in/api/users', {
             data: {

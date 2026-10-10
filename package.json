@@ -10,13 +10,14 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.62.1",
-    "@types/node": "^26.2.0",
+    "@types/node": "^26.6.5",
     "allure-playwright": "^3.10.2",
     "playwright-schema-validator": "^1.0.0"
   },
   "dependencies": {
     "csv-parse": "^7.0.2",
     "dotenv": "^17.4.2",
+    "mysql2": "^3.24.5",
     "xlsx": "^0.18.5"
   }
 }
