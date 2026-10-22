@@ -27,5 +27,7 @@ test.describe('Checkout', () => {
         await checkoutPage.finishOrder()
         await expect(page).toHaveURL(/checkout-complete\.html/)
         await expect(checkoutPage.confirmationTitle).toBeVisible()
+
+        //// changed the code
     })
 })
