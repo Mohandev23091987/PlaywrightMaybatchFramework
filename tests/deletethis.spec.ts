@@ -37,5 +37,9 @@ test.describe('Checkout', () => {
         //line6
         //line7
         //line8
+        //line1
+        //line2
+        //line3
+        //line4
     })
 })
